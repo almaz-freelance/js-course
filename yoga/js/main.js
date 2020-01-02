@@ -269,5 +269,5 @@ window.addEventListener('DOMContentLoaded', function () {
             let a = total;
             totalValue.textContent = a * this.options[this.selectedIndex].value;
         }
-    })
+    });
 });
