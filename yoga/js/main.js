@@ -222,10 +222,52 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     dotsWrap.addEventListener('click', function (event) {
-        for (let i = 0; i < dots.length+1; i++) {
-            if(event.target.classList.contains('dot') && event.target == dots[i-1]){
+        for (let i = 0; i < dots.length + 1; i++) {
+            if (event.target.classList.contains('dot') && event.target == dots[i - 1]) {
                 currentSlide(i);
-            }            
+            }
+        }
+    });
+
+    //calc
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        totalValue = document.getElementById('total'),
+        personSum = 0,
+        daySum = 0,
+        total = 0;
+
+    totalValue.textContent = 0;
+
+    persons.addEventListener('change', function () {
+        personSum = +this.value;
+        total = (daySum + personSum) * 4000;
+
+        if (restDays.value == '' || this.value == '') {
+            totalValue.textContent = 0;
+        } else {
+            totalValue.textContent = total;
+        }
+    });
+    restDays.addEventListener('change', function () {
+        daySum = +this.value;
+        total = (daySum + personSum) * 4000;
+
+        if (persons.value == '' || this.value == '') {
+            totalValue.textContent = 0;
+        } else {
+            totalValue.textContent = total;
+        }
+    });
+
+    place.addEventListener('change', function () {
+        if (restDays.value == '' || persons.value == '') {
+            totalValue.textContent = 0;
+        } else {
+            let a = total;
+            totalValue.textContent = a * this.options[this.selectedIndex].value;
         }
     })
 });
