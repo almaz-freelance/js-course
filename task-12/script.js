@@ -10,7 +10,7 @@ class Option{
     createBlock(){
         let item = document.createElement('div');
         document.body.appendChild(item);
-        let param = `height: ${this.height}px; width: ${this.width}px; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign}; color: white`;
+        let param = `height: ${this.height}px; width: ${this.width}px; background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign}; color: white; display: flex; align-items: center; justify-content: center`;
         item.style.cssText = param;
         item.textContent = "title";
     }
